@@ -21,6 +21,7 @@ func TestReport(t *testing.T) {
 			"simple report": {
 				Expected: exp1,
 				Report: CoverageReport{
+					Header: []string{"Filename", "Function", "Coverage"},
 					Rows: []CoverageReportEntry{
 						{
 							Filename:     "file1.go",

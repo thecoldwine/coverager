@@ -13,13 +13,14 @@ type CoverageReportEntry struct {
 }
 
 type CoverageReport struct {
-	Rows  []CoverageReportEntry
-	Total struct {
+	Header []string
+	Rows   []CoverageReportEntry
+	Total  struct {
 		Coverage float64
 	}
 }
 
-const templ = `| Filename | Function | Coverage |
+const templ = `{{ range .Header }}| {{ . }} {{ end }}|
 |----------|----------|----------|{{ range .Rows }}
 | {{ .Filename }} | {{ .FunctionName }} | {{ fmtCoverage .Coverage }} |{{ end }}
 | Total | | {{ fmtCoverage .Total.Coverage }} |
