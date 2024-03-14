@@ -60,7 +60,7 @@ func main() {
 
 	switch strings.ToLower(inputType) {
 	case "cobertura":
-		panic("not implemented yet")
+		report = ParseCoberturaReport(r)
 	case "gofunc":
 		report = ParseGoFunc(r)
 	case "":
